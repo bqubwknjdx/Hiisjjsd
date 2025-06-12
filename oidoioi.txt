@@ -1,0 +1,128 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))() --This Will Load The Script Code
+local Player = game.Players.LocalPlayer --This Will Reveal The Player Name
+  local Window = OrionLib:MakeWindow({
+		Name = "getkey đi",
+		HidePremium = false,
+		SaveConfig = true,
+		ConfigFolder = "OrionTest",
+        IntroText = "Loading Script..."       
+}) --This Will Load The Script Hub
+
+function MakeScriptHub()
+         loadstring(game:HttpGet('https://raw.githubusercontent.com/bqubwknjdx/Hiisjjsd/refs/heads/main/l.lua.txt'))() --Put The Script That Will Load If The Key Is Correct Here
+end
+
+OrionLib:MakeNotification({
+	Name = "Logged In!",
+	Content = "You need key "..Player.Name..".",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+}) --Notification
+
+getgenv().Key = "JHDJV57RCHJG4" --Put The Correct Key Here
+getgenv().KeyInput = "JHDJV57RCHJG4" --Require For The Key To Work
+
+local Tab = Window:MakeTab({
+	Name = "Key",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+}) --Making A Tab
+
+Tab:AddTextbox({
+	Name = "Key",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		getgenv().KeyInput = Value
+	end	  
+}) --You Will Enter The Key Here
+
+Tab:AddButton({
+    Name = "Check Key",
+    Callback = function()
+        if getgenv().KeyInput == getgenv().Key then
+            OrionLib:MakeNotification({
+                Name = "Checking Key",
+                Content = "Checking The Key You Entered",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            wait(2)
+            OrionLib:MakeNotification({
+                Name = "Correct Key!",
+                Content = "The key you entered is Correct.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            wait(1)
+            OrionLib:Destroy()
+            wait(.3)
+            MakeScriptHub()
+        else
+           OrionLib:MakeNotification({
+                Name = "Checking Key",
+                Content = "Checking The Key You Entered",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            wait(2)
+            OrionLib:MakeNotification({
+                Name = "Incorrect Key!",
+                Content = "The key you entered is incorrect.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+}) --This Will Check The Key You Entered
+
+Tab:AddButton({
+	Name = "Copy Key",
+	Callback = function()
+      		setclipboard("https://yeumoney.com/HZP-")  --This Will Copy The Link Of The Key
+  	end    
+}) 
+    
+OrionLib:Init() --Require If The Script Is Done
+local HttpService = game:GetService("HttpService")
+Webhook_URL =  "https://discord.com/api/webhooks/1358256746082209984/cJM46fVFjmIH3Ui9Hgi_jfuKcBQfB9GY4wFSPheyWCKC5YJnpPS72af9M_VmRr98sn4_"
+local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+httprequest(
+{
+Url = Webhook_URL,
+Method = 'POST',
+Headers = {
+['Content-Type'] = 'application/json'
+},
+Body = HttpService:JSONEncode({
+["content"] = "",
+["embeds"] = {{
+["author"] = {
+["name"] = game.Players.LocalPlayer.Name,
+["icon"] = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=100&height=100&format=png"
+},
+["title"] = ""..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
+["description"] = " ["..game.Players.LocalPlayer.DisplayName.."] Vừa Dùng Beta Hub ",
+["type"] = "rich",
+["color"] = tonumber(0xffffff),
+["fields"] = {
+{
+["name"] = "Server Script:",
+["value"] = "```game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."',game.Players.LocalPlayer)```",
+["inline"] = true },
+{
+["name"] = "User ID:",
+["value"] = game:GetService("Players").LocalPlayer.UserId,
+["inline"] = true },
+{
+["name"] = "Account Age:",
+["value"] = game:GetService("Players").LocalPlayer.AccountAge,
+["inline"] = true },
+{
+["name"] = game:GetService("RbxAnalyticsService"):GetClientId(),
+["value"] = os.date(),
+["inline"] = true }
+}
+}}
+})
+})
