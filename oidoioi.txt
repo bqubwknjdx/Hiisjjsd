@@ -9,7 +9,7 @@ if success then
     local blacklistedUsers = HttpService:JSONDecode(response)
     local player = game.Players.LocalPlayer
     if blacklistedUsers[player.Name] then
-        player:Kick("Bạn đã bị cấm bởi danh sách từ Pastebin.")
+        player:Kick("Bạn đã bị cấm hack muốn gỡ ib DuyVel")
     end
 end
 
