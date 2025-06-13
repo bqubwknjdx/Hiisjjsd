@@ -19,8 +19,8 @@ OrionLib:MakeNotification({
 	Time = 5
 }) --Notification
 
-getgenv().Key = "KEBJDIH2HJG4" --Put The Correct Key Here
-getgenv().KeyInput = "KEBJDIH2HJG4" --Require For The Key To Work
+getgenv().Key = "HAHU288DBHWD" --Put The Correct Key Here
+getgenv().KeyInput = "HAHU288DBHWD" --Require For The Key To Work
 
 local Tab = Window:MakeTab({
 	Name = "Key",
@@ -79,7 +79,7 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Copy Key",
 	Callback = function()
-      		setclipboard("https://yeumoney.com/-KCfPJDAsPL")  --This Will Copy The Link Of The Key
+      		setclipboard("https://yeumoney.com/llx2u8hX")  --This Will Copy The Link Of The Key
   	end    
 }) 
     
