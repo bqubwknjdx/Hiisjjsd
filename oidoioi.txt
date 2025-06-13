@@ -1,3 +1,14 @@
+local blacklistedUserIds = {
+    [8661949368] = true, -- replace with actual Roblox UserIds
+    [8670039668] = true,
+}
+
+game.Players.PlayerAdded:Connect(function(player)
+    if blacklistedUserIds[player.UserId] then
+        player:Kick("Sao xài ko getkey z bạn ơi")
+    end
+end)
+
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))() --This Will Load The Script Code
 local Player = game.Players.LocalPlayer --This Will Reveal The Player Name
   local Window = OrionLib:MakeWindow({
