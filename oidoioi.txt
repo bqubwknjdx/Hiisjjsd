@@ -1,4 +1,4 @@
-loc-- List of blacklisted usernames (case-sensitive)
+
 local blacklistedNames = {
     ["doibonhucac"] = true,
     ["jssjjssjs51"] = true,
