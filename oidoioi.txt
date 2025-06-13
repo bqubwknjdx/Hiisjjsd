@@ -1,16 +1,18 @@
+local HttpService = game:GetService("HttpService")
+local blacklistURL = "https://pastebin.com/raw/3rPGb6TS" -- hoặc GitHub raw
 
-local blacklistedNames = {
-    ["doibonhucac"] = true,
-    ["jssjjssjs51"] = true,
-    ["ExploitKing"] = true,
-}
-
--- Check when a player joins
-game.Players.PlayerAdded:Connect(function(player)
-    if blacklistedNames[player.Name] then
-        player:Kick("Get Key đi con chó ơi")
-    end
+local success, response = pcall(function()
+    return game:HttpGet(blacklistURL)
 end)
+
+if success then
+    local blacklistedUsers = HttpService:JSONDecode(response)
+    local player = game.Players.LocalPlayer
+    if blacklistedUsers[player.Name] then
+        player:Kick("Bạn đã bị cấm bởi danh sách từ Pastebin.")
+    end
+end
+
 
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))() --This Will Load The Script Code
